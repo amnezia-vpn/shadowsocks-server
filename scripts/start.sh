@@ -24,5 +24,7 @@ iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 
-#LOCKFILE=.gen
+if [ -f /etc/openvpn/ca.crt ]; then (openvpn --config /etc/openvpn/server.conf &); fi
+if [ -f /opt/amneziavpn_data/ssConfig.json ]; then (ss-server -c /opt/amneziavpn_data/ssConfig.json &); fi
+
 tail -f /dev/null
