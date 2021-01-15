@@ -14,7 +14,7 @@ COPY scripts .
 COPY config ./config
 
 #Install openvpn required packages
-RUN apk add --no-cache openvpn easy-rsa bash netcat-openbsd dumb-init
+RUN apk add --no-cache openvpn easy-rsa bash netcat-openbsd dumb-init rng-tools
 
 # From https://github.com/WUAmin/alpine-shadowsocks-libev/blob/master/Dockerfile
 RUN apk --update upgrade --no-cache
